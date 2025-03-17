@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>FrontendPro Sandbox</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- DO NOT import fonts here. Instead, use the 
+  @import directive in the styles.css file. -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  
+</head>
+
+<body>
+    <div class="page-title">
+        <h1> Video Playlist Gallery</h1>
+    </div>
+    <div class="page-container">
+        <div class="left-part">
+            <div class="player" id="media-player-container">
+                <div class="video" id="media-player" >
+                    <video >
+                        <source src="video-files/piccolo-aura-farmer.mp4" type="video/mp4" id="video-src" />
+                    </video>
+                </div>
+                <div class="controls" id="controls-container">
+                    <div class="timer">
+                        <span id="timer-text-left" aria-label="timer">00:00</span>
+                        <div class="progress-bar">
+                            <div id="media-progress-bar"></div>
+                        </div>
+                        <span id="timer-text-right" onload="setVideoTime()" aria-label="timer"></span>
+                    </div>
+                    <div class="media-player-controls">
+                        <div class="media-player-controls-left">
+                        </div>
+                        <div class="media-player-controls-mid">
+                            <button class="button-stop"  aria-keyshortcuts="s" aria-label="Stop Keyboard Shortcut s" title="Stop (s)"></button>
+                            <div class="button-rwd-container" id="button-rwd-container" aria-keyshortcuts="b" aria-label="Rewind Keyboard Shortcut b " title="Rewind (b)">
+                                <button class="button-rwd" id="button-rwd-left"></button>
+                                <button class="button-rwd" id="button-rwd-right"></button>
+                            </div>
+                            <button class="button-play" id="media-btn" aria-keyshortcuts="k" aria-label="Play Keyboard Shortcut k" title="Play (k)"></button>
+                            <div class="button-fwd-container" aria-keyshortcuts="u" aria-label="Rewind Keyboard Shortcut u " title="Forward (u)">
+                                <button class="button-fwd" id="button-rwd-left"></button>
+                                <button class="button-fwd" id="button-rwd-right"></button>
+                            </div>
+                            <div class="button-next" id="button-next" aria-keyshortcuts="Shift + N" aria-label="Stop Keyboard Shortcut Shift + N" title="Next Video (Shift + N)">
+                                <button class="button-fwd" id="button-rwd-right"></button>
+                                <button class="button-bar" id="button-bar"></button>
+                            </div>
+                        </div>
+                        <div class="media-player-controls-right">
+                            <div class="volume-section">
+                                <i class="fa fa-volume-down" id="volume-icon" style="font-size:24px; color:#444A5F"></i>
+                                <input type="range" value="50" id="volume" min="0" max="100">
+                            </div>
+                            <i class="fa fa-expand" id="fullscreen-icon" style="font-size:24px; color:#444A5F"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <h1 class="media-title" id="media-title"></h1>
+        </div>
+        <div class="right-part" on>
+            <div class="videos-container" id="videos-container" style="overflow-y:scroll;">
+            </div>
+        </div>
+    </div>
+  
+  <!-- DON'T remove it -->
+  <script src="index.js" type="module"></script>
+  
+  
+</body>
+
+</html>
