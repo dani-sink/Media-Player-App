@@ -17,6 +17,18 @@
     <div class="page-title">
         <h1> Video Playlist Gallery</h1>
     </div>
+    <section class="upload-section">
+        <form action="https://httpbin.org/post" id="mp4-file-form" method="post" enctype="multipart/form-data">
+            <input id="file-input" name="file" type="file" multiple>
+            <button type="submit">Upload</button>
+        </form>
+        <div hidden>
+            <label for="video-title">Select a title for this video</label>
+            <input type="text" id="video-title" name="video-title">
+        </div>
+        <p id="message-status"></p>
+        <img src="" alt="" id="img-preview" width="350">
+    </section>
     <div class="page-container">
         <div class="left-part">
             <div class="player" id="media-player-container">

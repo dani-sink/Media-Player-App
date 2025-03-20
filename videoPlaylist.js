@@ -1,8 +1,8 @@
 export const videos = [
     {
-        url: '/video-files/piccolo-aura-farmer.mp4',
-        title: 'Piccolo Aura Farmer 🔥🔥',
-        thumbnail: '/thumbnails/piccolo-thumbnail.png',
+        url: '/video-files/deer-and-harp-lady.mp4',
+        title: 'Deer and Harp Lady',
+        thumbnail: '/thumbnails/deer-and-harp-lady.jpg',
         id: 1
     },
     {
@@ -42,10 +42,10 @@ export const videos = [
         id: 7
     },
     {
-        url: '/video-files/deer-and-harp-lady.mp4',
-        title: 'Deer and Harp Lady',
-        thumbnail: '/thumbnails/deer-and-harp-lady.jpg',
+        url: '/video-files/piccolo-aura-farmer.mp4',
+        title: 'Piccolo Aura Farmer 🔥🔥',
+        thumbnail: '/thumbnails/piccolo-thumbnail.png',
         id: 8
-    }
+    },
     
 ]

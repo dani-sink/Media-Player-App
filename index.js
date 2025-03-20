@@ -23,6 +23,12 @@ const buttonNext = document.getElementById('button-next');
 
 const playlistContainer = document.getElementById('videos-container')
 
+const form = document.getElementById('mp4-file-form')
+const fileInput = document.getElementById('file-input')
+const preview = document.getElementById('img-preview')
+const message = document.getElementById('message-status')
+
+
 let intervalRwd;
 let intervalFwd;
 let isClicked = false;
@@ -375,7 +381,56 @@ function goToNextVideo(event){
 }
 
 
+ function handleSubmit(e){
+  e.preventDefault();
 
+  const file = fileInput.files[0];
+  if (file) {
+    const url = 'https://httpbin.org/post';
+    const formData = new FormData(form);
+
+    const fetchOptions = {
+      method: 'post',
+      body: formData,
+      headers: {
+        'Accepts': 'multipart/form-data'
+      }
+    }
+
+    message.textContent = 'Uploading file...'
+    message.className = ""
+
+    fetch(url, fetchOptions)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.files.file)
+      message.textContent = 'File uploaded successfully.'
+      message.className = 'success'
+    })
+    .catch(error => {
+      console.log('Error', error)
+      message.textContent = 'Error uploading file.'
+      message.className = 'error'
+    });
+
+  } else {
+    message.textContent = "Please select a file to upload";
+    message.className = "error";
+  }
+}
+
+// async function uploadFiles() {
+//   const url = 'https://httpbin.org/post';
+//   const formData = new FormData(form);
+
+//   const fetchOptions = {
+//     method: 'post',
+//     body: formData
+//   }
+
+//   const data = await fetch(url, fetchOptions);
+//   console.log(data)
+// }
 
 function loadPlaylist(){
   media.volume = 0.50;
@@ -439,6 +494,8 @@ document.documentElement.addEventListener('keyup', keyboardControls)
 document.documentElement.addEventListener('keyup', toggleFullScreenWithFKey)
 document.addEventListener('keydown', goToNextVideo)
 window.addEventListener('keydown', keyDownControls)
+
+form.addEventListener('submit', handleSubmit)
 
 media.removeAttribute("controls");
 controls.style.visibility = "visible";
